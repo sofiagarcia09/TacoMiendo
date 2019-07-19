@@ -94,7 +94,10 @@ public class MainActivity extends AppCompatActivity
             manager.beginTransaction().replace(R.id.plantilla_principal,new TarjetasFragment()).commit();
 
         } else if (id == R.id.nav_cat) {
-            Toast.makeText(getApplicationContext(),"Categorias",Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(),"Categorias",Toast.LENGTH_LONG).show();
+            //manager.beginTransaction().replace(R.id.plantilla_principal,new PlatillosFragment()).commit();
+            //manager.beginTransaction().replace(R.id.plantilla_principal,new BebidasFragment()).commit();
+            manager.beginTransaction().replace(R.id.plantilla_principal,new PostresFragment()).commit();
 
         } else if (id == R.id.nav_manage) {
             Toast.makeText(getApplicationContext(),"Mantenimiento",Toast.LENGTH_LONG).show();

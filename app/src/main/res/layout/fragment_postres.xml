@@ -5,10 +5,262 @@
     android:layout_height="match_parent"
     tools:context=".PostresFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:stretchColumns="0,1"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_postre"
+                        android:layout_width="155dp"
+                        android:layout_height="180dp"
+                        android:accessibilityLiveRegion="assertive"
+                        android:background="@drawable/postre_vainilla"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <FrameLayout
+                        android:layout_width="155dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:background="#FF9E80">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="$ 2.0 "
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/textView5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Postre de Vainilla"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_flan"
+                        android:layout_width="155dp"
+                        android:layout_height="180dp"
+                        android:layout_marginRight="3dp"
+                        android:accessibilityLiveRegion="assertive"
+                        android:background="@drawable/flan_celestial"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <FrameLayout
+                        android:layout_width="155dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:background="#FF9E80">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="$ 3.0 "
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Flan Celestial"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_cupcake"
+                        android:layout_width="155dp"
+                        android:layout_height="180dp"
+                        android:accessibilityLiveRegion="assertive"
+                        android:background="@drawable/cupcakes_festival"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <FrameLayout
+                        android:layout_width="155dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:background="#FF9E80">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="$ 2.5 "
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Cupcake Festival"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_fresa"
+                        android:layout_width="155dp"
+                        android:layout_height="180dp"
+                        android:accessibilityLiveRegion="assertive"
+                        android:background="@drawable/pastel_fresa"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <FrameLayout
+                        android:layout_width="155dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:background="#FF9E80">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="$ 4.0 "
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Pastel de Fresa"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_muffin"
+                        android:layout_width="155dp"
+                        android:layout_height="180dp"
+                        android:accessibilityLiveRegion="assertive"
+                        android:background="@drawable/muffin_amoroso"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+                    <FrameLayout
+                        android:layout_width="155dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:background="#FF9E80">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="$ 5.0 "
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Muffin amoroso"
+                                android:textColor="@android:color/background_light"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
 
 </FrameLayout>
