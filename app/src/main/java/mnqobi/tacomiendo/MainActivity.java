@@ -19,20 +19,17 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
     FragmentManager manager = getSupportFragmentManager();
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Inicio");
         setSupportActionBar(toolbar);
-
         manager.beginTransaction().replace(R.id.plantilla_principal,new menuFragment()).commit();
-
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -54,7 +51,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
+  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
@@ -63,47 +60,33 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
-        }
-
+            return true;        }
         return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            //Toast.makeText(getApplicationContext(),"Home",Toast.LENGTH_LONG).show();
+            toolbar.setTitle("Inicio");
+            setSupportActionBar(toolbar);
             manager.beginTransaction().replace(R.id.plantilla_principal,new menuFragment()).commit();
         } else if (id == R.id.nav_user) {
-           // Toast.makeText(getApplicationContext(),"User",Toast.LENGTH_LONG).show();
-            //Intent intent = new Intent(getApplicationContext(),CuentaActivity.class);
-            //startActivity(intent);
-            //manager.beginTransaction().replace(R.id.plantilla_principal,new PerfilFragment()).commit();
-            //manager.beginTransaction().replace(R.id.plantilla_principal,new DireccionesFragment()).commit();
-            manager.beginTransaction().replace(R.id.plantilla_principal,new TarjetasFragment()).commit();
-
+           Intent intent = new Intent(getApplicationContext(),CuentaTabsActivity.class);
+           startActivity(intent);
         } else if (id == R.id.nav_cat) {
-            //Toast.makeText(getApplicationContext(),"Categorias",Toast.LENGTH_LONG).show();
-            //manager.beginTransaction().replace(R.id.plantilla_principal,new PlatillosFragment()).commit();
-            //manager.beginTransaction().replace(R.id.plantilla_principal,new BebidasFragment()).commit();
-            manager.beginTransaction().replace(R.id.plantilla_principal,new PostresFragment()).commit();
-
+            Intent intent = new Intent(getApplicationContext(),CategoriasActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_manage) {
-            Toast.makeText(getApplicationContext(),"Mantenimiento",Toast.LENGTH_LONG).show();
+            Toolbar toolbar1=findViewById(R.id.toolbar);
+            toolbar1.setTitle("Configuración");
+            manager.beginTransaction().replace(R.id.plantilla_principal,new ConfiguracionFragment()).commit();
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

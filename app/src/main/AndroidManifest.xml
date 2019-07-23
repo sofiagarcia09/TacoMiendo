@@ -10,18 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Cuenta2Activity"
-            android:label="@string/title_activity_cuenta2"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".CategoriasActivity"
+            android:label="@string/title_activity_categorias"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".CuentaActivity"
-            android:label="@string/title_activity_cuenta"
+            android:name=".CuentaTabsActivity"
+            android:label="@string/title_activity_cuenta_tabs"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"

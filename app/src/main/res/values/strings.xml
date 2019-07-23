@@ -13,4 +13,13 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_cuenta2">Cuenta2Activity</string>
+
+    <string-array name="frecuencias">
+        <item>Un correo diario</item>
+        <item>Un correo a la semana</item>
+        <item>Un correo al mes</item>
+        <item>No quiero Recibir correos</item>
+    </string-array>
+    <string name="title_activity_cuenta_tabs">CuentaTabsActivity</string>
+    <string name="title_activity_categorias">CategoriasActivity</string>
 </resources>

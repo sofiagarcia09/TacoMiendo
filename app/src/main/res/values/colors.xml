@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="bg_gray">#283747</color>
-    <color name="bg_gray2">#B3B6B7</color>
+    <color name="bg_gray2">#8AB3B6B7</color>
+    <color name="titulo">#000000</color>
 </resources>
