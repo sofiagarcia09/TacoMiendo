@@ -1,31 +1,49 @@
 package mnqobi.tacomiendo;
 
+
+
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 
-public class CuentaTabsActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ *
+ */
+public class PerFragment extends Fragment {
+
+
+    public PerFragment() {
+        // Required empty public constructor
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cuenta_tabs);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this,getSupportFragmentManager());
-        ViewPager viewPager = findViewById(R.id.view_pager);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View perfil =  inflater.inflate(R.layout.fragment_per, container, false);
+
+        PerFragment.SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this,getFragmentManager());
+        ViewPager viewPager = perfil.findViewById(R.id.viewpager);
         viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = findViewById(R.id.tabs);
+        TabLayout tabs = perfil.findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
+        return perfil;
     }
+
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(CuentaTabsActivity cuentaTabsActivity, FragmentManager fm) {
+        public SectionsPagerAdapter(PerFragment perFragment, FragmentManager fm) {
             super(fm);
         }
 
@@ -72,4 +90,5 @@ public class CuentaTabsActivity extends AppCompatActivity {
             return section;
         }
     }
+
 }

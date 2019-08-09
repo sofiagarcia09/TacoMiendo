@@ -1,31 +1,48 @@
 package mnqobi.tacomiendo;
 
+
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 
-public class CuentaTabsActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class CuentaFragment extends Fragment {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cuenta_tabs);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this,getSupportFragmentManager());
-        ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
 
+    public CuentaFragment() {
+        // Required empty public constructor
     }
 
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(CuentaTabsActivity cuentaTabsActivity, FragmentManager fm) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View cuentaFragment = inflater.inflate(R.layout.fragment_cuenta, container, false);
+
+
+        ViewPager viewPager = cuentaFragment.findViewById(R.id.pager);
+        MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getFragmentManager());
+        viewPager.setAdapter(myPagerAdapter);TabLayout tabLayout = (TabLayout) cuentaFragment.findViewById(R.id.tablaLayout);
+        tabLayout.setupWithViewPager(viewPager);
+
+        return cuentaFragment;
+    }
+
+
+
+    public class MyPagerAdapter extends FragmentPagerAdapter {
+
+        public MyPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -72,4 +89,5 @@ public class CuentaTabsActivity extends AppCompatActivity {
             return section;
         }
     }
+
 }

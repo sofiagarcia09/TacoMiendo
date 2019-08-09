@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,79 +17,102 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener {
 
-    FragmentManager manager = getSupportFragmentManager();
-    Toolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Inicio");
-        setSupportActionBar(toolbar);
-        manager.beginTransaction().replace(R.id.plantilla_principal,new menuFragment()).commit();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        setToolbar();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+
+        setFragmentByDefault();
+
         navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 
   @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+      getMenuInflater().inflate(R.menu.main, menu);
+      return super.onCreateOptionsMenu(menu);
+
+  }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;        }
+
+        switch (item.getItemId()){
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
         return super.onOptionsItemSelected(item);
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
+        boolean fragmentTransaction = false;
+        Fragment fragment = null;
 
-        if (id == R.id.nav_home) {
-            toolbar.setTitle("Inicio");
-            setSupportActionBar(toolbar);
-            manager.beginTransaction().replace(R.id.plantilla_principal,new menuFragment()).commit();
-        } else if (id == R.id.nav_user) {
-           Intent intent = new Intent(getApplicationContext(),CuentaTabsActivity.class);
-           startActivity(intent);
-        } else if (id == R.id.nav_cat) {
-            Intent intent = new Intent(getApplicationContext(),CategoriasActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_manage) {
-            Toolbar toolbar1=findViewById(R.id.toolbar);
-            toolbar1.setTitle("Configuración");
-            manager.beginTransaction().replace(R.id.plantilla_principal,new ConfiguracionFragment()).commit();
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                fragment = new menuFragment();
+                fragmentTransaction = true;
+                break;
+            case R.id.nav_user:
+                fragment = new CuentaFragment();
+                fragmentTransaction = true;
 
+            case R.id.nav_cat:
+                fragment = new CategoriasFragment();
+                fragmentTransaction = true;
+                break;
+
+            case R.id.nav_manage:
+                fragment = new ConfiguracionFragment();
+                fragmentTransaction = true;
+                break;
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        if(fragmentTransaction){
+            changeFragment(fragment, item);
+            drawerLayout.closeDrawers();
+        }
+        return  true;
     }
+
+    //setting up the toolbar
+    public void setToolbar(){
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_nav);;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }
+
+    //metodo que coloca el fragmento principañ
+    public void setFragmentByDefault(){
+        changeFragment(new menuFragment(), navigationView.getMenu().getItem(0));
+    }
+
+    //metodo que nos permite cambiar un fragmento
+    public void changeFragment(Fragment fragment, MenuItem item){
+        getSupportFragmentManager().beginTransaction().replace(R.id.plantilla_principal, fragment).commit();
+        item.setChecked(true);
+        getSupportActionBar().setTitle(item.getTitle());
+    }
+
+
+
+
+
+
 }

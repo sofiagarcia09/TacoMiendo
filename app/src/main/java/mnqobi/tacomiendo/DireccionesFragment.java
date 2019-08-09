@@ -41,6 +41,9 @@ public class DireccionesFragment extends Fragment {
         Adapter adaptadorDirecciones = new AdaptadorDirecciones(getContext(),direcciones);
         ListView lista = direc.findViewById(R.id.list_direcciones);
         lista.setAdapter((ListAdapter) adaptadorDirecciones);
+
+
+
         return direc;
     }
 

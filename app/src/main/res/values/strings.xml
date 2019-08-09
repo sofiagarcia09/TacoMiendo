@@ -22,4 +22,5 @@
     </string-array>
     <string name="title_activity_cuenta_tabs">CuentaTabsActivity</string>
     <string name="title_activity_categorias">CategoriasActivity</string>
+    <string name="title_activity_configuracion">ConfiguracionActivity</string>
 </resources>
