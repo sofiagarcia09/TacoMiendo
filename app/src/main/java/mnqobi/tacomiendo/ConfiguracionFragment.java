@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,17 @@ public class ConfiguracionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
+
         final View configuracion =  inflater.inflate(R.layout.fragment_configuracion, container, false);
+
+
+
+
+
+
         btn_fre = configuracion.findViewById(R.id.btn_frecuencia);
         btn_fre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,5 +89,4 @@ public class ConfiguracionFragment extends Fragment {
 
         return configuracion;
     }
-
 }

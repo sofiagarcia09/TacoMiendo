@@ -17,7 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -32,9 +32,7 @@ public class MainActivity extends AppCompatActivity   implements NavigationView.
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-
         setFragmentByDefault();
-
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -72,6 +70,7 @@ public class MainActivity extends AppCompatActivity   implements NavigationView.
             case R.id.nav_user:
                 fragment = new CuentaFragment();
                 fragmentTransaction = true;
+                break;
 
             case R.id.nav_cat:
                 fragment = new CategoriasFragment();
@@ -82,6 +81,7 @@ public class MainActivity extends AppCompatActivity   implements NavigationView.
                 fragment = new ConfiguracionFragment();
                 fragmentTransaction = true;
                 break;
+
         }
         if(fragmentTransaction){
             changeFragment(fragment, item);
@@ -96,9 +96,10 @@ public class MainActivity extends AppCompatActivity   implements NavigationView.
         setSupportActionBar(myToolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_nav);;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            }
 
-    //metodo que coloca el fragmento principañ
+    }
+
+    //metodo que coloca el fragmento principal
     public void setFragmentByDefault(){
         changeFragment(new menuFragment(), navigationView.getMenu().getItem(0));
     }
@@ -109,10 +110,6 @@ public class MainActivity extends AppCompatActivity   implements NavigationView.
         item.setChecked(true);
         getSupportActionBar().setTitle(item.getTitle());
     }
-
-
-
-
 
 
 }

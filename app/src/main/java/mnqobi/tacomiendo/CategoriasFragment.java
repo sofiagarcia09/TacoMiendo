@@ -29,10 +29,10 @@ public class CategoriasFragment extends Fragment {
         View categoriasFragment = inflater.inflate(R.layout.fragment_categorias, container, false);
 
 
-        ViewPager viewPager = categoriasFragment.findViewById(R.id.pager);
+        ViewPager viewPager = categoriasFragment.findViewById(R.id.pagerCategorias);
         CategoriasFragment.MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getFragmentManager());
         viewPager.setAdapter(myPagerAdapter);
-        TabLayout tabLayout = (TabLayout) categoriasFragment.findViewById(R.id.tablaLayout);
+        TabLayout tabLayout =categoriasFragment.findViewById(R.id.tablaLayoutCategorias);
         tabLayout.setupWithViewPager(viewPager);
 
         return categoriasFragment;

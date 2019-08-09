@@ -30,9 +30,9 @@ public class CuentaFragment extends Fragment {
         View cuentaFragment = inflater.inflate(R.layout.fragment_cuenta, container, false);
 
 
-        ViewPager viewPager = cuentaFragment.findViewById(R.id.pager);
+        ViewPager viewPager = cuentaFragment.findViewById(R.id.pagerCuenta);
         MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getFragmentManager());
-        viewPager.setAdapter(myPagerAdapter);TabLayout tabLayout = (TabLayout) cuentaFragment.findViewById(R.id.tablaLayout);
+        viewPager.setAdapter(myPagerAdapter);TabLayout tabLayout = cuentaFragment.findViewById(R.id.tablaLayoutCuenta);
         tabLayout.setupWithViewPager(viewPager);
 
         return cuentaFragment;
