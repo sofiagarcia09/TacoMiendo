@@ -2,6 +2,7 @@ package mnqobi.tacomiendo;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -24,14 +25,14 @@ public class CuentaFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View cuentaFragment = inflater.inflate(R.layout.fragment_cuenta, container, false);
 
 
         ViewPager viewPager = cuentaFragment.findViewById(R.id.pagerCuenta);
-        MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getFragmentManager());
+        MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(myPagerAdapter);TabLayout tabLayout = cuentaFragment.findViewById(R.id.tablaLayoutCuenta);
         tabLayout.setupWithViewPager(viewPager);
 

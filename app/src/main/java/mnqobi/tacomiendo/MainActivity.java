@@ -1,21 +1,17 @@
 package mnqobi.tacomiendo;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,19 +42,16 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()){
-            case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            drawerLayout.openDrawer(GravityCompat.START);
+            return true;
         }
         return super.onOptionsItemSelected(item);
 
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         boolean fragmentTransaction = false;
         Fragment fragment = null;
 
@@ -92,9 +85,9 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
     //setting up the toolbar
     public void setToolbar(){
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_nav);;
+        Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(R.drawable.ic_menu_nav);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
@@ -108,8 +101,6 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     public void changeFragment(Fragment fragment, MenuItem item){
         getSupportFragmentManager().beginTransaction().replace(R.id.plantilla_principal, fragment).commit();
         item.setChecked(true);
-        getSupportActionBar().setTitle(item.getTitle());
+        Objects.requireNonNull(getSupportActionBar()).setTitle(item.getTitle());
     }
-
-
 }
